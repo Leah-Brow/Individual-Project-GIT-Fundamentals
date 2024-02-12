@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Useful Links</b></h4>
+  <h2>Graphical Clients</h2>
+  <a class="w3-bar-item w3-button w3-hover-black" href="https://www.sourcetreeapp.com/">Source Tree (OSX & Windows, free)</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="https://desktop.github.com/">GitHub for Mac (OSX, free)</a>
+  <h2>Guides</h2>
+  <a class="w3-bar-item w3-button w3-hover-black" href="https://support.github.com/">GitHub Help</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="https://progit.org/">Pro Git</a>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Git - The Simple Guide</h1>
+      <p>just a simple guide for getting started with git.</p>
+      <h1 class="w3-text-teal">Create A New Repository</h1>
+      <p>Create a new directory, open it and perform a <b>git init</b> to create a new git repository.</p>
+      <h3> Checkout A Repository</h3>
+      <p> create a working copy of a local repository by running the command <b>git clone /path/to/repository</b> 
+          when using a remote server, your command will be <b>git clone username@host:/path/to/repository</b></p>
+    </div>
+
+  <div class="w3-third w3-container">
+    <div class="w3-twothird w3-container">
+      <h2 class="w3-text-blue">Setup</h2>
+
+      <p><b><a href="https://git-scm.com/download/mac" target="_blank">Download git for macOS</a></b></p>
+      <p><b><a href="https://git-scm.com/download/mac" target="_blank">Download git for Windows</a></b></p>
+      <p><b><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">Download git for Linux</a></b></p>
+    </div>
+  </div>
+  </div>
+
+
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Workflow</h1>
+      <p>Your local repository consists of three "trees" maintained by git. the first one is your <b>Working 
+        Directory</b> which holds the actual files. the second one is the <b>Index</b> which acts as a staging area and finally 
+        the <b>HEAD</b> which points to the last commit you've made.</p>
+        <h1 class="w3-text-teal">Add & Commit</h1>
+        <p>You can propose changes (add it to the Index) using <b>git add <filename></b> <b>git add *</b></p>
+        <p>This is the first step in the basic git workflow. To actually commit these changes use <b>git commit -m "Commit message"</b>
+        Now the file is committed to the HEAD, but not in your remote repository yet.</p>
+    </div>
+    <div class="w3-third w3-container">
+      <img src="workflow.png" alt="Workflow" style="width:300px">
+    </div>
+  </div>
+
+
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Branching</h1>
+      <p>ranches are used to develop features isolated from each other. The master branch is the "default" branch 
+        when you create a repository. Use other branches for development and merge them back to the master branch 
+        upon completion.</p>
+        <h1 class="w3-text-teal">Updates & Merge</h1>
+        <p>to update your local repository to the newest commit, execute
+        <b>git pull</b></p>
+        <p>in your working directory to fetch and merge remote changes.
+          to merge another branch into your active branch (e.g. master), use
+          <b>git merge <branch></b></p>
+        <p>in both cases git tries to auto-merge changes. Unfortunately, this is not always possible and results 
+          in conflicts. You are responsible to merge those conflicts manually by editing the files shown by git. 
+          After changing, you need to mark them as merged with
+          <b>git add <filename></b></p>
+        <p>before merging changes, you can also preview them by using
+        <b>git diff <source_branch> <target_branch></b></p>
+          <h1 class="w3-text-teal">Replace Local Changes</h1>
+          <p>In case you did something wrong, which for sure never happens ;), you can replace local changes using 
+            the command<b>git checkout -- <filename></b></p>
+          <p> this replaces the changes in your working tree with the last content in HEAD. Changes already added to 
+            the index, as well as new files, will be kept.</p>
+          <p>If you instead want to drop all your local changes and commits, fetch the latest history from the server 
+            and point your local master branch at it like this
+            <b>git fetch origin</b> <b>git reset --hard origin/master</b></p>
+    </div>
+    <div class="w3-third w3-container">
+      <p>create a new branch named "feature_x" and switch to it using
+      <b>git checkout -b feature_x</b></p>
+      <p>switch back to master
+      <b>git checkout master</b></p>
+      <p>and delete the branch again</p>
+      <b>git branch -d feature_x</b>
+      <p>a branch is not available to others unless you push the branch to your remote repository</p>
+      <b>git push origin <branch></b>
+        
+    </div>
+  </div>
+
+
+<!-- END MAIN -->
+</div>
+
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+</body>
+</html>
